@@ -1,0 +1,49 @@
+<h1>
+</h1>
+
+<div class="container">
+
+  <h1>Ember To Do List</h1>
+  <div class="header">
+    <div>
+
+      <label>Due:</label>
+      <input type="text">
+    </div>
+    <div>
+      <label for="">Task description:</label>
+      {{input value=taskName }}
+      <button {{action "addTask" taskName}}>Add</button>
+    </div>
+  </div>
+
+  <div class="task-block">
+    <div class="task-filter">
+
+      <button>All</button>
+      <button>Complete</button>
+      <button>Incomplete</button>
+    </div>
+
+    <div class="list">
+      <ul>
+        <div class="item-list">
+          {{#each tarefas as |item|}}
+          <div class="item">
+            <input type="checkbox">
+            <ol>{{item}}</ol>
+            <button class="edit">Edit</button>
+            <button {{action "removeTask" item}} class="remove">Remove</button>
+          </div>
+          {{/each}}
+        </div>
+
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+
+{{outlet}}
